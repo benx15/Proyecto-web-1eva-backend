@@ -45,25 +45,30 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService{
 	}
 
 	@Override
-	public List<Usuario> findAll() {
+	public List<Usuario> buscarTodos() {
 		// TODO Auto-generated method stub
 		return usrepo.findAll();
 	}
 
 	@Override
-	public Usuario registrar(Usuario usuario) {
-		usuario.setEnabled(1);
-		usuario.setPerfil(new Perfil());
-		usuario.getPerfil().setIdPerfil(2);
-		usuario.setFechaRegistro(LocalDate.now());
-		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-		return usrepo.save(usuario);
+	public Usuario registrar(Usuario cliente) {
+		cliente.setEnabled(1);
+		cliente.setPerfil(new Perfil());
+		cliente.getPerfil().setIdPerfil(2);
+		cliente.setFechaRegistro(LocalDate.now());
+		cliente.setPassword(passwordEncoder.encode(cliente.getPassword()));
+		return usrepo.save(cliente);
 	}
 
 	@Override
 	public List<Usuario> findByPerfil(Perfil perfil) {
 		// TODO Auto-generated method stub
 		return usrepo.findByPerfil(perfil);
+	}
+
+	@Override
+	public Usuario adminCrearUsu(Usuario usu) {
+		return usrepo.save(usu);
 	}
 
 }
