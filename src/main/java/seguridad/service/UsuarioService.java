@@ -9,8 +9,9 @@ public interface UsuarioService {
 	
 	Usuario findById(String username);
 	Usuario findByUsernamePassword(String username, String password);
-	List<Usuario> findAll();
-	Usuario registrar(Usuario usuario);
+	List<Usuario> buscarTodos();
+	Usuario registrar(Usuario cliente);
 	List<Usuario> findByPerfil(Perfil perfil);
+	Usuario adminCrearUsu(Usuario usu);
 
 }
