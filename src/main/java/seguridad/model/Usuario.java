@@ -48,6 +48,7 @@ public class Usuario implements UserDetails, Serializable{
 	@JoinColumn(name= "id_perfil")
 	private Perfil perfil;
 	
+	
 
 	
 	
