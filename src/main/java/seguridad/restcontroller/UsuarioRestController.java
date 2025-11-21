@@ -45,14 +45,14 @@ public class UsuarioRestController {
 
 	        return ResponseEntity.ok().body(usuario);
 	    }
-	@GetMapping("admin/listausu")
+	@GetMapping("/admin/listausu")
 	@PreAuthorize("hasRole('ADMON')")
 	public ResponseEntity<List<Usuario>> listaUsuarios(){
 		List<Usuario> todosUsuarios = usuarioService.buscarTodos();
 		return ResponseEntity.ok(todosUsuarios);
 	}
 	
-	@PostMapping("admin/crearusu")
+	@PostMapping("/admin/crearusu")
 	@PreAuthorize("hasRole('ADMON')")
 	public ResponseEntity<?> adminCreaUsuario(@RequestBody Usuario usu){
 		usu.setPassword(new BCryptPasswordEncoder().encode(usu.getPassword()));
