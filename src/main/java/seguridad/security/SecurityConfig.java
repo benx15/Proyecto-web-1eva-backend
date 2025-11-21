@@ -46,7 +46,7 @@ public class SecurityConfig {
     AuthenticationProvider authenticationProvider(UserDetailsService uds, PasswordEncoder encoder) {
         // usar constructor con UserDetailsService (no deprecado)
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider(uds);
-       // provider.setPasswordEncoder(encoder);
+        //provider.setPasswordEncoder(encoder);
   //      provider.setHideUserNotFoundExceptions(false); // opcional
         return provider;
     }
